@@ -2,8 +2,11 @@ package study
 
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.assertThrows
 import racingcar.domain.Car
+import racingcar.view.Input
+import java.io.ByteArrayInputStream
 
 
 class CarTest {
@@ -27,5 +30,19 @@ class CarTest {
         assertThrows<IllegalArgumentException> {
             Car("김 종경")
         }
+    }
+
+    @Test
+    fun `자동차 이름은 쉼표(,)를 기준으로 구분한다`() {
+        // Given
+        val input = "김종경,양두영,윤성원\n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        // When
+        val result = Input().inputCarName()
+
+        // Then
+        val expected = listOf("김종경", "양두영", "윤성원")
+        Assertions.assertEquals(expected, result)
     }
 }
