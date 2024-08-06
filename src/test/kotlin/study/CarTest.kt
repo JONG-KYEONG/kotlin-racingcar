@@ -45,4 +45,28 @@ class CarTest {
         val expected = listOf("김종경", "양두영", "윤성원")
         Assertions.assertEquals(expected, result)
     }
+
+    @Test
+    fun `시도할 횟수를 입력할 수 있어야 한다`() {
+        // Given
+        val input = "5\n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        // When
+        val result = Input().inputTryNumber()
+
+        // Then
+        val expected = 5
+        Assertions.assertEquals(expected, result)
+    }
+
+    @Test
+    fun `시도할 횟수 입력 시 잘못된 입력을 받으면 IllegalArgumentException을 발생시켜야한다`() {
+        val input = "김종경\n"
+        System.setIn(ByteArrayInputStream(input.toByteArray()))
+
+        assertThrows<IllegalArgumentException> {
+            Input().inputTryNumber()
+        }
+    }
 }
