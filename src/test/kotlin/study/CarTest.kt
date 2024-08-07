@@ -3,10 +3,15 @@ package study
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.assertThrows
 import racingcar.domain.Car
 import racingcar.view.Input
+import racingcar.view.Output
 import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
+import java.io.StringWriter
 
 
 class CarTest {
@@ -80,5 +85,23 @@ class CarTest {
         car2.move(6)
         //Then
         assertThat(car1.position==0 && car2.position==1)
+    }
+
+    @Test
+    fun `전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다`() {
+        // given
+        var car1 = Car("김종경")
+        car1.move(3)
+        var carlist = mutableListOf<Car>()
+        carlist.add(car1)
+
+        //when
+        val outputStream = ByteArrayOutputStream()
+        System.setOut(PrintStream(outputStream))
+        Output().outputExecutionResult(carlist)
+
+        // then
+        val expectedOutput = "김종경 : \n"
+        assertEquals(expectedOutput.trim(), outputStream.toString().trim())
     }
 }
