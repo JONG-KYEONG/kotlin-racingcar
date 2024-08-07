@@ -104,4 +104,23 @@ class CarTest {
         val expectedOutput = "김종경 : \n"
         assertEquals(expectedOutput.trim(), outputStream.toString().trim())
     }
+
+    @Test
+    fun `전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다`() {
+        // given
+        var car1 = Car("김종경")
+        car1.move(car1.getRandomNumber())
+        car1.move(car1.getRandomNumber())
+        var carlist = mutableListOf<Car>()
+        carlist.add(car1)
+
+        //when
+        val outputStream = ByteArrayOutputStream()
+        System.setOut(PrintStream(outputStream))
+        Output().outputExecutionResult(carlist)
+
+        // then
+        val expectedOutput = "김종경 : \n"
+        assertEquals(expectedOutput.trim(), outputStream.toString().trim())
+    }
 }

@@ -11,6 +11,17 @@ class Output {
             }
             println()
         }
+        println()
+    }
+
+    fun outputMessage(){
+        println()
+        println("실행 결과")
+    }
+
+    fun outputFinalResult(winnerList : List<Car>){
+        print("최종 우승자: ")
+        print(winnerList.joinToString(", ") { it.name })
     }
 
 }
