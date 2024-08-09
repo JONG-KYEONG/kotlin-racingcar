@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.domain.Car
+import racingcar.domain.RandomNumber
 import racingcar.view.Input
 import racingcar.view.Output
 
@@ -21,7 +22,7 @@ class RacingCarController {
     }
     fun progressGame(carList : List<Car>) {
         carList.forEach { car ->
-            car.move(car.getRandomNumber())
+            car.move(RandomNumber().getRandomNumber())
         }
     }
     fun getWinnerList(carList: List<Car>) : List<Car>{

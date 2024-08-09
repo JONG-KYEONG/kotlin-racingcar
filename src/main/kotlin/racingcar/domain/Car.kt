@@ -10,9 +10,4 @@ class Car(val name : String, var position : Int = 0){
     fun move(randomNum : Int){
         if(randomNum >= 4) position++
     }
-    fun getRandomNumber(): Int{
-        val numberRange = (0..9)
-        val num = numberRange.random()
-        return num
-    }
 }
