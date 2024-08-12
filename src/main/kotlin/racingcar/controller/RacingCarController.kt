@@ -8,7 +8,7 @@ import racingcar.view.Output
 class RacingCarController {
     fun startGame(){
         val carList = createNewCars()
-        val repeatTime = Input().inputTryNumber()
+        val repeatTime = Input().readTryNumber()
         Output().outputMessage()
         repeat(repeatTime!!) {
             progressGame(carList)

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.assertThrows
 import racingcar.domain.Car
+import racingcar.domain.RandomNumber
 import racingcar.view.Input
 import racingcar.view.Output
 import java.io.ByteArrayInputStream
@@ -58,7 +59,7 @@ class CarTest {
         System.setIn(ByteArrayInputStream(input.toByteArray()))
 
         // When
-        val result = Input().inputTryNumber()
+        val result = Input().readTryNumber()
 
         // Then
         val expected = 5
@@ -71,7 +72,7 @@ class CarTest {
         System.setIn(ByteArrayInputStream(input.toByteArray()))
 
         assertThrows<IllegalArgumentException> {
-            Input().inputTryNumber()
+            Input().readTryNumber()
         }
     }
 
@@ -109,8 +110,8 @@ class CarTest {
     fun `전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다`() {
         // given
         var car1 = Car("김종경")
-        car1.move(car1.getRandomNumber())
-        car1.move(car1.getRandomNumber())
+        car1.move(RandomNumber().getRandomNumber())
+        car1.move(RandomNumber().getRandomNumber())
         var carlist = mutableListOf<Car>()
         carlist.add(car1)
 
