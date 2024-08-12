@@ -13,7 +13,7 @@ class RacingCarController {
         repeat(repeatTime!!) {
             progressGame(carList)
             Output().outputExecutionResult(carList) }
-        val winnerList = getWinnerList(carList)
+        val winnerList = getWinners(carList)
         Output().outputFinalResult(winnerList)
     }
     fun createNewCars(): List<Car> {
@@ -25,7 +25,7 @@ class RacingCarController {
             car.move(RandomNumber().getRandomNumber())
         }
     }
-    fun getWinnerList(carList: List<Car>) : List<Car>{
+    fun getWinners(carList: List<Car>) : List<Car>{
         val maxDistance = carList.maxOfOrNull { it.position }
         return carList.filter { car -> car.position == maxDistance }
     }
