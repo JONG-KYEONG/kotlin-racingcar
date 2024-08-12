@@ -8,6 +8,9 @@ class Car(val name : String, var position : Int = 0){
         require(!name.contains(" ")) { "자동차 이름은 공백을 포함 할 수 없습니다." }
     }
     fun move(randomNum : Int){
-        if(randomNum >= 4) position++
+        if(randomNum >= CAR_MOVE_CONDITION) position++
+    }
+    companion object {
+        private const val CAR_MOVE_CONDITION = 4
     }
 }
