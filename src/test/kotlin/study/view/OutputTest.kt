@@ -21,7 +21,7 @@ class OutputTest {
         //when
         val outputStream = ByteArrayOutputStream()
         System.setOut(PrintStream(outputStream))
-        Output().outputExecutionResult(carlist)
+        Output().printExecutionResult(carlist)
 
         // then
         val expectedOutput = "김종경 : \n"
@@ -40,7 +40,7 @@ class OutputTest {
         //when
         val outputStream = ByteArrayOutputStream()
         System.setOut(PrintStream(outputStream))
-        Output().outputExecutionResult(carlist)
+        Output().printExecutionResult(carlist)
 
         // then
         val expectedOutput = "김종경 : \n"

@@ -8,11 +8,11 @@ class CarController {
     fun startGame(){
         val carList = CarService().createNewCars()
         val repeatTime = Input().readTryNumber()
-        Output().outputMessage()
+        Output().printMessage()
         repeat(repeatTime!!) {
             CarService().progressGame(carList)
-            Output().outputExecutionResult(carList) }
+            Output().printExecutionResult(carList) }
         val winnerList = CarService().getWinners(carList)
-        Output().outputFinalResult(winnerList)
+        Output().printFinalResult(winnerList)
     }
 }
