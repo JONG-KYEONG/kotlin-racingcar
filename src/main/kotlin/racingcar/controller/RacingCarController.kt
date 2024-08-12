@@ -17,7 +17,7 @@ class RacingCarController {
         Output().outputFinalResult(winnerList)
     }
     fun createNewCars(): List<Car> {
-        val nameList = Input().inputCarName()
+        val nameList = Input().readCarName()
         return nameList!!.map { name -> Car(name) }
     }
     fun progressGame(carList : List<Car>) {

@@ -45,7 +45,7 @@ class CarTest {
         System.setIn(ByteArrayInputStream(input.toByteArray()))
 
         // When
-        val result = Input().inputCarName()
+        val result = Input().readCarName()
 
         // Then
         val expected = listOf("김종경", "양두영", "윤성원")
