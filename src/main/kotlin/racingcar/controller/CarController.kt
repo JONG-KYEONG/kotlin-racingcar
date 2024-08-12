@@ -1,12 +1,10 @@
 package racingcar.controller
 
-import racingcar.domain.Car
 import racingcar.domain.CarService
-import racingcar.domain.RandomNumber
 import racingcar.view.Input
 import racingcar.view.Output
 
-class RacingCarController {
+class CarController {
     fun startGame(){
         val carList = CarService().createNewCars()
         val repeatTime = Input().readTryNumber()
