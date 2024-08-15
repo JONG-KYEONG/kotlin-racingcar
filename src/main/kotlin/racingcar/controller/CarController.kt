@@ -7,10 +7,11 @@ import racingcar.view.Output
 
 class CarController {
     fun setGame(){
-        val carList = CarService().createNewCars()
+        val names = Input().readCarName()
+        val cars = CarService().createNewCars(names)
         val repeatTime = Input().readTryNumber()
-        startGame(carList,repeatTime)
-        endGame(carList)
+        startGame(cars,repeatTime)
+        endGame(cars)
     }
     fun startGame(carList : List<Car>, repeatTime : Int){
         Output().printMessage()

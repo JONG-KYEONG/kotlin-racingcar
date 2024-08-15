@@ -14,7 +14,7 @@ class OutputTest {
     fun `전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다`() {
         // given
         var car1 = Car("김종경")
-        car1.move(3)
+        car1.move()
         var carlist = mutableListOf<Car>()
         carlist.add(car1)
 
@@ -32,8 +32,8 @@ class OutputTest {
     fun `전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다`() {
         // given
         var car1 = Car("김종경")
-        car1.move(RandomNumber().getRandomNumber())
-        car1.move(RandomNumber().getRandomNumber())
+        car1.move()
+        car1.move()
         var carlist = mutableListOf<Car>()
         carlist.add(car1)
 

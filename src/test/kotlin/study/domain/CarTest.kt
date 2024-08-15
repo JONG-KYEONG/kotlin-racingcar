@@ -33,10 +33,10 @@ class CarTest {
     fun `자동차는 전진 또는 멈출 수 있다`() {
         //Given
         var car1 = Car("김종경")
-        car1.move(3)
+        car1.move()
 
         var car2 = Car("양두영")
-        car2.move(6)
+        car2.move()
         //Then
         assertThat(car1.position==0 && car2.position==1)
     }
